@@ -1,0 +1,52 @@
+
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Добавление комментариев</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/js"></script>
+ </head>
+ <body>
+ 	<div class="container">
+ 	  <div class="row justify-content-center">
+        <div class="col-6">
+          <h1>Добавить комментарий</h1>
+
+          <div class="alert alert-danger d-none" role="alert" id='result'>
+             Заполните все обязательные поля и исправьте ошибки!
+          </div>
+
+			 <form action="/comment/" method="POST" id="form-comment">
+
+			    <div class="form-group">
+			      <label for="last_name">Фамилия*:</label>
+			      <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Укажите вашу фамилию">
+			      <label for="first_name">Имя*:</label>
+			      <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Укажите ваше имя">
+			      <label for="patronymic">Отчество*:</label>
+			      <input type="text" name="patronymic" id="patronymic" class="form-control" placeholder="Укажите ваше отчество">
+			      <label for="region">Регион:</label>
+			      <select class="custom-select" name="region" id="region">
+					<option disabled selected value='0'>Выберите регион</option>
+				  </select>
+				  <label for="city">Город:</label>
+			      <select class="custom-select"name="city" id="city" disabled>
+					<option selected value='0'>Выберите город</option>
+				  </select>
+				  <label for="tel">Телефон:</label>
+			      <input type="text" name="tel" id="tel" class="form-control" placeholder="Укажите ваш телефон">
+			      <label for="email">Email:</label>
+			      <input type="text" name="email" id="email" class="form-control" placeholder="Укажите ваш email">
+			      <label for="text">Комментарий*:</label>
+			      <textarea class="form-control" name="text" id="text" rows="3"></textarea>
+			    </div>
+			    <button type="submit" class="btn btn-primary" id="validate">Отправить</button>
+
+			</form>
+
+       </div>
+     </div>
+   </div>
+ </body>
+</html>
