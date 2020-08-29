@@ -188,12 +188,16 @@ def delete_comment(request, response):
     """Функция получает ID комментария и удаляет объект с данным ID из таблицы comments."""
     if request.method == 'POST':
         comment_id = request.POST.get('comment_id')
-        sql = """DELETE FROM comments WHERE comment_id = ?"""
-        cursor.execute(sql, (comment_id,))
-        comment = cursor.fetchall()
-        conn.commit()
+        if comment_id is not None:
+            sql = """DELETE FROM comments WHERE comment_id = ?"""
+            cursor.execute(sql, (comment_id,))
+            comment = cursor.fetchall()
+            conn.commit()
+            result = 'ok'
+        else:
+            result = 'error'
         data = {
-            'result': 'ok'
+            'result': result
         }
         response.text = json.dumps(data, ensure_ascii=False)
         response.content_type ='application/json'
